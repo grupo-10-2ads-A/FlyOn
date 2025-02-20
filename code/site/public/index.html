@@ -1,11 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mapa de Calor de Voos</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-heat/dist/leaflet-heat.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
-    <a href="entrar.html">entrar</a>
+    <h1>Mapa de Calor de Voos</h1>
+    <div id="map"></div>
+    <script>
+        // Inicializa o mapa
+const map = L.map('map').setView([20, 0], 2); // Centro do mapa
+
+// Adiciona um layer de tiles ao mapa
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+}).addTo(map);
+
+// Dados do mapa de calor (exemplo de coordenadas)
+// Substitua estes dados por informações reais que você coleta sobre voos
+const heatmapData = [
+    [37.782, -122.447], // Exemplo de coordenadas
+    [37.782, -122.445],
+    [37.782, -122.443],
+    [37.782, -122.441],
+    [37.785, -122.447]
+];
+
+// Cria o layer de calor
+const heat = L.heatLayer(heatmapData, { radius: 25 }).addTo(map);
+
+    </script>
 </body>
 </html>

@@ -10,12 +10,6 @@ function buscarPorIdUsuario(IdUsuario) {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome, email, senha) {
-    var instrucao = `
-        INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', '${senha}');
-    `;
-    return database.executar(instrucao);
-}
 
 function atualizar(IdUsuario, nome, email, telefone) {
     var instrucao = `
@@ -34,7 +28,6 @@ function deletar(IdUsuario) {
 module.exports = {
     listar,
     buscarPorIdUsuario,
-    cadastrar,
     atualizar,
     deletar
 };
